@@ -1,9 +1,21 @@
 package com.banana.tictactoe;
 
-public class App {
+import org.apache.camel.builder.RouteBuilder;
+
+import com.rocket.core.Rocket;
+
+public class App extends RouteBuilder {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		Rocket.configure().withClasses(App.class, AppConfiguration.class).initialize().launchAndWait();
+
+	}
+
+	@Override
+	public void configure() throws Exception {
+
+		from("jetty:http://0.0.0.0:8080/rocket?matchOnUriPrefix=true").to("cxfbean:user");
 
 	}
 
