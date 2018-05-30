@@ -8,7 +8,7 @@ public class App extends RouteBuilder {
 
 	public static void main(String[] args) {
 
-		Rocket.configure().withClasses(App.class, AppConfiguration.class).initialize().launchAndWait();
+		Rocket.build().withClass(App.class).withClass(AppConfiguration.class).initialize().launchAndWait();
 
 	}
 
