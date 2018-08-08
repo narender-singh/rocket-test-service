@@ -17,6 +17,7 @@ public class AppConfiguration {
 
 	@Bean
 	public RocketCassandraDbConnectionPool cassandraPool() {
+		// default configuration
 		return RocketConnectionPoolFactory.getCassandraDataSource("nasingh", "Bliss.123", 9042, "127.0.0.1");
 	}
 }
